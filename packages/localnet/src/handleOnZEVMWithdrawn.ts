@@ -59,6 +59,11 @@ export const handleOnZEVMWithdrawn = async ({
         const executeTx = await protocolContracts.custody
           .connect(tss)
           .withdrawAndCall(receiver, erc20, amount, message, deployOpts);
+        console.log("receiver", receiver);
+        console.log("erc20", erc20);
+        console.log("amount", amount);
+        console.log("message", message);
+        console.log("deployOpts", deployOpts);
         await executeTx.wait();
       }
       const logs = await provider.getLogs({
